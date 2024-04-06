@@ -1,0 +1,1 @@
+// logout button details (eventlistener, queryselector, etc...)

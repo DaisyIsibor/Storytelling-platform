@@ -1,1 +1,1 @@
-// 
+// To create the connection to localhost and sequelize

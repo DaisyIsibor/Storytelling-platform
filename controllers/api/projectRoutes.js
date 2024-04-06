@@ -1,0 +1,1 @@
+// Router to all stories and one story
