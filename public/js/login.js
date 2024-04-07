@@ -1,0 +1,1 @@
+// login button details (eventlistener, queryselector, etc...)

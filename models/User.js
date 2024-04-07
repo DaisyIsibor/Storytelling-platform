@@ -1,0 +1,1 @@
+// User details for signing up (user login information)
