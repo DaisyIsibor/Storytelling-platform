@@ -1,6 +1,4 @@
 // // Editing user details, write user details, create user details, update user details
-// const mongoose=require('mongoose')
-// const blogSchema=new mongoose.Schema({
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -8,16 +6,19 @@ class Blog extends Model {}
 
 Blog.init(
     {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
         title:{
             type:String,
             required:true
         },
-        authorid:{
-            type:String,
-            required:true
-        },
         authorName:{
-            type:String
+            type:String,
+            allowNull: false
         },
         authorId: {
             type: DataTypes.STRING,
