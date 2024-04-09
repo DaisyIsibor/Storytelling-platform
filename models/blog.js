@@ -20,9 +20,12 @@ Blog.init(
             type:String,
             allowNull: false
         },
-        authorId: {
+        user_id: {
             type: DataTypes.STRING,
-            allowNull: false
+            references:{
+                model: 'user',
+                key: 'id'
+            }
         },
         description: {
             type: DataTypes.STRING,
@@ -36,14 +39,11 @@ Blog.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        publishDate: {
-            type: DataTypes.DATE,
-            allowNull: false
-        },
-        readTime: {
-            type: DataTypes.STRING,
-            allowNull: false
-        }
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'blog',
     });
 
 module.exports = Blog;
