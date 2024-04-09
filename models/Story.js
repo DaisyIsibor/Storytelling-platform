@@ -29,7 +29,7 @@ Story.init(
     blog_id: {
         type: DataTypes.STRING,
         references: {
-            model: 'blog',
+            model: 'post',
             key: 'id'
         }
     }
