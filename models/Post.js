@@ -1,4 +1,4 @@
-// // Editing user details, write user details, create user details, update user details
+ // Editing user details, write user details, create user details, update user details
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -19,10 +19,7 @@ Post.init(
                 len: [1]
             },
         },
-        // authorName:{
-        //     type:String,
-        //     allowNull: false
-        // },
+    
         user_id: {
             type: DataTypes.INTEGER,
             references:{
@@ -30,10 +27,14 @@ Post.init(
                 key: 'id'
             }
         },
+
+        // this is the story  itself
+
         story_content: {
             type: DataTypes.TEXT,
             allowNull: false
         },
+
         // likes: {
         //     type: DataTypes.ARRAY(DataTypes.STRING),
         //     defaultValue: []
