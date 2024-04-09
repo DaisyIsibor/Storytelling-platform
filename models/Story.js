@@ -22,10 +22,24 @@ Story.init(
             key: 'id'
         }
     },
-    description: {
-        type: DataTypes.STRING,
-        allowNull: false
+    // description: {
+    //     type: DataTypes.STRING,
+    //     allowNull: false
+    // },
+
+    content_text:{
+        type:DataTypes.TEXT,
+        allowNull: false,
+        validate:{
+            len:[1]
+        },
     },
+    
+    authorName:{
+        type:DataTypes.STRING,
+        allowNull: false
+        },
+
     blog_id: {
         type: DataTypes.STRING,
         references: {
