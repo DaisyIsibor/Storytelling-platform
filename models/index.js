@@ -3,7 +3,7 @@
 
 const User = require('./User');
 const Post = require('./Post'); // this is the actual post on the platform
-const Story= require('./Story'); // this file is the outer later of the story 
+const Story= require('./Comment'); // this file is the outer later of the story 
 
 // this is if a user has many post then create foreign key and user post can be deleted 
 User.hasMany(Post, {
