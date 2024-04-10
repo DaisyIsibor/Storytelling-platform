@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
             req.session.user_id = dbUserData.id;
             req.session.name = dbUserData.name;
             req.session.logged_in = true;
-            res.status(201).json({ message: `Account created for ${dbUserData.name}`});
+            res.status(200).json({ message: `Account created for ${dbUserData.name}`});
         });
     } catch (err) {
         res.status(400).json(err);

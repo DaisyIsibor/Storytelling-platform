@@ -14,12 +14,12 @@ Post.init(
         },
         title:{
             type: DataTypes.STRING,
-            required:true,
-            validate:{
-                len: [1]
-            },
+            allowNull: false,
         },
-    
+        story_content: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references:{
@@ -27,14 +27,6 @@ Post.init(
                 key: 'id'
             }
         },
-
-        // this is the story  itself
-
-        story_content: {
-            type: DataTypes.TEXT,
-            allowNull: false
-        },
-
         // likes: {
         //     type: DataTypes.ARRAY(DataTypes.STRING),
         //     defaultValue: []
