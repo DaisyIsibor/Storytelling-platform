@@ -1,6 +1,6 @@
 // Router for all post to get all post.
 const router = require('express').Router();
-const { User, Post, Story  } = require('../../models');
+const { User, Post, Comment  } = require('../../models');
 
 // Creating a new post
 router.post('/', async (req, res) => {
@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
 // Deleting a post
 router.delete('/:id', async (req, res) => {
     try {
-        const storyData = await Comment.destroy({
+        const storyData = await Comment.destroy({ // should this be postdata?
             where: { postId: req.params.id },
         });
         const postData = await Post.destroy({
