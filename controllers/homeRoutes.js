@@ -70,5 +70,13 @@ router.get('/signup', async (req, res) => {
 })
 
 //testing
+// render the new new post page
+router.get('/newpost', (req, res) => {
+    if (req.session.logged_in) {
+        res.render('newpost');
+        return;
+    }
+    res.redirect('/login')
+})
 
 module.exports = router;
