@@ -23,12 +23,27 @@ router.delete('/:id', async (req, res) => {
         });
         if (!postData) {
         res.status(404).json({
-          message: 'No project found with this id!' });
+            message: 'No project found with this id!' });
         return;
-      }
-      res.status(200).json(postData);
+        }
+        res.status(200).json(postData);
     } catch (err) {
-      res.status(500).json(err);
+        res.status(500).json(err);
+    }
+});
+
+// Editing a Post 
+router.put('/:id', async (req, res) => {
+    try {
+        const updatedPost = await Post.update(req.body, {
+            where: {id: req.params.id},
+        });
+        if (!updatedPost) {
+            res.status(404).json({ message: "No Post found with that ID"});
+        }
+        res.status(200).json(updatedPost);
+    } catch (err) {
+        res.status(500).json(err);
     }
 });
 
