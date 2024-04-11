@@ -1,9 +1,10 @@
 // Router for all post to get all post.
 const router = require('express').Router();
 const { User, Post, Comment  } = require('../../models');
+const withAuth = require('../../utils/auth')
 
 // Creating a new post
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const newPost = await Post.create({ ...req.body, user_id: req.session.user_id });
         res.status(200).json(newPost);
@@ -13,7 +14,7 @@ router.post('/', async (req, res) => {
 });
 
 // Deleting a post
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const storyData = await Comment.destroy({ // should this be postdata?
             where: { postId: req.params.id },
@@ -33,7 +34,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 // Editing a Post 
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
     try {
         const updatedPost = await Post.update(req.body, {
             where: {id: req.params.id},
