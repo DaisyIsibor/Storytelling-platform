@@ -1,0 +1,109 @@
+<!-- This is the profile of each user -->
+
+<!-- profile.handlebars -->
+<section id="profile-info">
+    <h2>My Profile</h2>
+    <!-- Include profile information here -->
+    <p><h2>Welcome, {{ name }}</h2></p>
+</section>
+
+<section id="write-form">
+    <h2>Write A Story</h2>
+    
+    <form action="/write" method="POST">
+
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="content">Content:</label><br>
+        <textarea id="content" name="content" rows="10" cols="50" required></textarea><br><br>
+
+    <h1>Explore A Tale</h1>
+
+    <label for="theme">Pick A Theme:</label><br>
+    <select id="theme" name="theme">
+
+    <option value="fantasy">Fantasy</option>
+    <option value="mystery">Mystery</option>
+    <option value="romance">Romance</option>
+    <option value="sci-fi">Science Fiction</option>
+    <option value="historical">Historical</option>
+    <option value="thriller">Thriller</option>
+    <option value="horror">Horror</option>
+    <option value="adventure">Adventure</option>
+    <option value="comedy">Comedy</option>
+    <option value="action">Action</option>
+    <option value="poetry">Poetry</option>
+    <option value="bedtime">Bedtime Stories</option>
+    <option value="children">Children's Stories</option>
+    <option value="fairy-tale">Fairy Tales</option>
+    <option value="mythology">Mythology</option>
+    <option value="magic">Magic</option>
+    <option value="superhero">Superhero</option>
+    <option value="space">Space Adventures</option>
+    <option value="animal">Animal Tales</option>
+    <option value="friendship">Friendship</option>
+    <option value="legends">Legends and Myths</option>
+    <option value="conspiracy">Conspiracy</option>
+    <option value="sports">Sports</option>
+    <option value="cooking">Cooking</option>
+    <option value="crafting">Crafting</option>
+    <option value="gardening">Gardening</option>
+    <option value="inter-racial-romance">Interracial Romance</option>
+    <option value="billionaire-romance">Billionaire Romance</option>
+    <option value="office-romance">Office Romance</option>
+
+        </select><br><br>
+        <button type="submit">Submit Story</button>
+    </form>
+
+    <!-- Delete and Edit buttons for stories -->
+    {{#if storys.length}}
+    <section id="delete-form">
+        <h2>Delete or Edit Stories</h2>
+
+        <div class="col-md-6 story-list">
+            <h3>Current Story:</h3>
+            {{#each storys as |story|}}
+            <div class="row mb-2">
+                <div class="col-md-8">
+                    <h4><a href="/story/{{ story.id }}">{{ story.title }}</a></h4>
+                    </div>
+                <div class="col-md-4">
+                <button class="btn btn-sm btn-danger" data-id="{{story.id}}">DELETE</button>
+                </div>
+                    <!-- Add edit button here -->
+                    <a href="/edit-story/{{ story.id }}" class="btn btn-sm btn-primary">EDIT</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </section>
+    {{/if}}
+</section>
+
+<section id="favorite-stories">
+    <h2>Favorite Stories</h2>
+
+    <!-- Display favorite stories here -->
+    {{#each user.favoriteStories}}
+    <div class="story">
+        <h3>{{ this.title }}</h3>
+        <p>{{ this.content }}</p>
+    </div>
+    {{/each}}
+</section>
+
+<section id="bio-form">
+    <h2>About Me</h2>
+    <!-- Include bio form here -->
+    <form action="/save-bio" method="POST">
+
+        <label for="about-me">About Me:</label><br>
+        
+        <textarea id="about-me" name="about-me" rows="4" cols="50" required></textarea><br><br>
+        <button type="submit">Save</button>
+    </form>
+</section>
+
+<script src="./js/profile.js"></script>

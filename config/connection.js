@@ -1,11 +1,14 @@
-// To create the connection to localhost and sequelize
+// To create the connection to localhost and sequelize 
 
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
 let sequelize;
-
+// Check if JAWSDB_URL environment variable is set (indicating JawsDB MySQL service on Heroku)
 if (process.env.JAWSDB_URL) {
+
+    // Initialize Sequelize with JawsDB URL
+    
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
   sequelize = new Sequelize(
