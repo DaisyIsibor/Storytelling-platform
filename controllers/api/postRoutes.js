@@ -47,4 +47,18 @@ router.put('/:id', async (req, res) => {
     }
 });
 
+// All posts with for a specific user
+router.get('/', async (req, res) => {
+    try {
+        const postData = await Post.findAll({
+            include: [{model: User, attributes: ["username"]}],
+        });
+        res.status(200).json(postData);
+    } catch (err){
+        res.status(500).json(err);
+    }
+});
+
+
+
 module.exports = router;
