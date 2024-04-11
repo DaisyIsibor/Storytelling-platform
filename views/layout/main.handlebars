@@ -1,4 +1,66 @@
-<!--This is a main page that helps connect to the {{body}}-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STORY TELLER</title>
+    <link rel="stylesheet" href="/css/jass.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="flex-column justify-space-around">
+        <header class="display-flex justify-space-between align-center p-2">
+            <h1>
+                <a href="/">Story Teller</a>
+            </h1>
+
+            <!--hamburger menu hides profile but when clicked displayes the menu option avaiable to each user -->
+
+            <button class="hamburger" onclick="toggleMenu()">☰ Menu</button>
+            <nav id="main-nav" class="hidden">
+                <!-- Conditionally render login or logout links -->
+                {{#if logged_in}}
+                <ul>
+                    <li><a href="/profile">My Profile</a></li>
+                    <li><a href="/bio">My Bio</a></li>
+                    <li><a href="/write">Write</a></li>
+                    <li><a href="/favourites">Favourites</a></li>
+                    <li><button style="border: none; background-color: transparent; color: gold;" id="logout">Logout</button></li>
+                </ul>
+                {{else}}
+                <a href="/login">Login</a>
+                {{/if}}
+            </nav>
+        </header>
+        <main class="container container-fluid mt-5">
+            <!-- Render the sub layout -->
+            {{{ body }}}
+        </main>
+        <footer>
+            &copy; 2024 Story Teller Made with ❤️ Daisy, Ash and James.
+        </footer>
+    </div>
+
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById('main-nav');
+            if (nav.classList.contains('hidden')) {
+                nav.classList.remove('hidden');
+            } else {
+                nav.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+
+</html>
 
 
 
