@@ -24,14 +24,15 @@ AS devlopers we  created A storyteller app as place for poeple to write/post the
 
 ## Questions
 
+### James
 * Linkedin:
 * Email: 
 * Github:
-
+### Ash
 * Linkedin:
 * Email: 
 * Github:
-
+### Daisy
 * Linkedin:
 * Email: 
 * Github:
