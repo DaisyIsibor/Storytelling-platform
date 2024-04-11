@@ -1,4 +1,4 @@
-// Router to the story routes
+// Router to the story, post and user routes
 const router = require('express').Router();
 
 const postRoutes = require('./postRoutes');

@@ -1,1 +1,50 @@
 {{!-- Page displaying all stories --}}
+
+{{!-- Main Page HTML Substitue --}}
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STORY TELLER</title>
+    <link rel="stylesheet" href="/css/jass.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+
+<body>
+    <header>
+        <h1><a href="/">Story Teller</a></h1>
+        <!-- Hamburger menu button -->
+        <button class="hamburger" onclick="toggleMenu()">☰ Menu</button>
+        <!-- Navigation menu -->
+        <nav id="main-nav">
+            <ul>
+                <li><a href="/profile">My Profile</a></li>
+               
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {{{ body }}} <!-- Render the main content -->
+    </main>
+
+    <footer>
+        &copy; 2024 Story Teller by Daisy, Ash and James
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById('main-nav');
+            if (nav.style.display === 'block') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
+
