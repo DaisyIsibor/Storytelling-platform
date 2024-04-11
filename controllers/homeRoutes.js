@@ -63,6 +63,11 @@ router.get("/login", (req, res) => {
     res.render('login');
 })
 
+//Signup
+router.get('/signup', async (req, res) => {
+    res.render('signup');
+})
+
 //testing
 
 module.exports = router;
