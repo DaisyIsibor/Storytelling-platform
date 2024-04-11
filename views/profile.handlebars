@@ -1,15 +1,13 @@
-{{!-- Main Page HTML Substitue --}}
+<!-- This is the profile of each user -->
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STORY TELLER</title>
     <link rel="stylesheet" href="/css/jass.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-
-
 <body>
     <header>
         <h1><a href="/">Story Teller</a></h1>
@@ -17,15 +15,17 @@
         <button class="hamburger" onclick="toggleMenu()">☰ Menu</button>
         <!-- Navigation menu -->
         <nav id="main-nav">
-            <ul>
-                <li><a href="/profile">My Profile</a></li>
-        
-            </ul>
+            {{#if logged_in}}
+                <a href="/profile">Profile</a> |
+                <button class="no-button" id="logout">Logout</button>
+            {{else}}
+                <a href="/login">Login</a>
+            {{/if}}
         </nav>
     </header>
-
-    <main>
-        {{{ body }}} <!-- Render the main content -->
+    <main class="container container-fluid mt-5">
+        <!-- Render the sub layout -->
+        {{{ body }}}
     </main>
 
     <footer>
@@ -45,4 +45,3 @@
     </script>
 </body>
 </html>
-
