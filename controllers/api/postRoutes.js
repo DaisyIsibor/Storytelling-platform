@@ -47,7 +47,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-// All posts with for a specific user
+// All posts with for one specific user
 router.get('/', async (req, res) => {
     try {
         const postData = await Post.findAll({
