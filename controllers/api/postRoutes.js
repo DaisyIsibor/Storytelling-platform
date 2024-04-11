@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
 // Deleting a post
 router.delete('/:id', async (req, res) => {
     try {
-        const storyData = await Comment.destroy({ // should this be postdata?
+        const commentData = await Comment.destroy({
             where: { postId: req.params.id },
         });
         const postData = await Post.destroy({
@@ -51,7 +51,8 @@ router.put('/:id', async (req, res) => {
 router.get('/', async (req, res) => {
     try {
         const postData = await Post.findAll({
-            include: [{model: User, attributes: ["username"]}],
+            // attributes could also be "name"
+            include: [{model: User, attributes: ["name"]}], 
         });
         res.status(200).json(postData);
     } catch (err){

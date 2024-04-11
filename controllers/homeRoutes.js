@@ -8,7 +8,7 @@ const withAuth = require('../utils/auth')
 router.get("/", async (req, res) => {
     try{
         const postData = await Post.findAll({
-            include: [{model: User, attributes: ["username"] }],
+            include: [{model: User, attributes: ["name"] }],
         });
         const posts = postData.map((post) => post.get({plain: true}));
         res.render("homepage", {
@@ -29,22 +29,24 @@ router.get('/post/:id', withAuth, async (req, res) => {
             include: [
                 {
                     model: Comment,
-                    attributes: ['id', 'comment', 'userId', 'created_at'],
+                    attributes: ['id', 'comment', 'user_id', 'created_at'],
                     include:{
                         model: User,
-                        attributes: ['username'],
+                        // attribute could also be "name"
+                        attributes: ['name'],
                     },
                 },
                 {
                     model: User,
-                    attributes: ['username'],
+                    // attribute could also be "name"
+                    attributes: ['name'],
                 },
             ],
         });
         if (postData) {
             const post = postData.get({plain: true});
             console.log(post);
-            res.render('single-post', {post, logged_in: req.session.logged_in, username: req.session.username,})
+            res.render('single-post', {post, logged_in: req.session.logged_in, name: req.session.name,})
         } else {
             res.status(404).json({ message: "No Post with ID"});
             return;
