@@ -33,8 +33,8 @@ AS devlopers we  created A storyteller app as place for poeple to write/post the
 * Email: 
 * Github:
 ### Daisy
-* Linkedin:
-* Email: 
-* Github:
+* Linkedin:http//www.linkedin.com/in/daisy-isibor-fsd
+* Email: daisyisibor9@gmail.com
+* Github:https://github.com/DaisyIsibor
 
 
