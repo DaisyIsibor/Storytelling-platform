@@ -13,17 +13,17 @@ Comment.init(
     },
     theme: {
         type: DataTypes.STRING,
-        allowNull: false,
+        // allowNull: false,
     },
     user_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         references:{
             model: 'user',
             key: 'id'
         }
     },
     post_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         references: {
             model: 'post',
             key: 'id'
