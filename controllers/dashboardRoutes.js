@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
-const sequelize = require('../config/config');
+const sequelize = require('../controllers');
 const withAuth = require('../utils/auth')
 
 // Using the GET method to get all the posts from a user if that user is logged in
