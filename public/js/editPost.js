@@ -20,5 +20,5 @@ const editform = async (event) => {
     } else {
         alret("Error when trying to edit ")
     }
-}
+};
 document.querySelector('.edit-form').addEventListener('submit', editform);
