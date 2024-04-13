@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
             include: [{model: User, attributes: ["name"] }],
         });
         const posts = postData.map((post) => post.get({plain: true}));
-        res.render("homepage", {
+        res.render("story", {
             posts,
             logged_in: req.session.logged_in,
         });
@@ -46,7 +46,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
         if (postData) {
             const post = postData.get({plain: true});
             console.log(post);
-            res.render('single-post', {post, logged_in: req.session.logged_in, name: req.session.name,})
+            res.render('story', {post, logged_in: req.session.logged_in, name: req.session.name,})
         } else {
             res.status(404).json({ message: "No Post with ID"});
             return;
@@ -68,14 +68,14 @@ router.get("/login", (req, res) => {
 
 //Signup
 router.get('/signup', async (req, res) => {
-    res.render('signup');
+    res.render('login');
 })
 
 //testing
 // render the new new post page
 router.get('/newpost', (req, res) => {
     if (req.session.logged_in) {
-        res.render('newpost');
+        res.render('profile');
         return;
     }
     res.redirect('/login')
