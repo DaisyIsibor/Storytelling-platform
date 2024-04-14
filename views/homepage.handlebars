@@ -1,1 +1,8 @@
 <!--This is were the stories posted are displayed-->
+<ul class="post-list">
+    {{#each posts as |post|}}
+    <li>
+        {{> story-info post }}
+    </li>
+    {{/each}}
+</ul>

@@ -63,7 +63,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
           return;
         }
         const post = dbPostData.get({ plain: true });
-        res.render('profile', { post, loggedIn: true, name: req.session.name });         
+        res.render('edit-story', { post, loggedIn: true, name: req.session.name });         
       })
       .catch((err) => {
         console.log(err);
@@ -73,7 +73,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
 
 //  Using the GET method to add a new post
 router.get('/new', withAuth, (req, res) => {
-    res.render('profile', { loggedIn: true });
+    res.render('new-story', { loggedIn: true });
 });
 
 module.exports = router; 
