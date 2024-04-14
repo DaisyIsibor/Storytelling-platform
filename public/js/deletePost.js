@@ -1,16 +1,17 @@
-async function deleteFormHandler(event) {
-    event.preventDefault();
-    const post_id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
-    const response = await fetch(`/api/posts/${post_id}`, {
+const deleteButton = document.querySelector('#del-post-btn');
+const post_id = document.querySelector('input[name="story"]').value; 
+
+const deleteHandler = async () => {
+    const reponse = await fetch(`/api/post/${post_id}`, {
         method: 'DELETE'
     });
-    if (response.ok) {
-        document.location.replace('/profile');
+    if (reponse.ok) {
+    document.location.replace('/profile');
     } else {
-        alert(response.statusText);
+        alert(reponse.statusText);
     }
-}
+};
 
-document.querySelector('.delete-post-btn').addEventListener('click', deleteFormHandler);
+if(deleteButton!=null){
+    deleteButton.addEventListener('click', deleteHandler);
+}
