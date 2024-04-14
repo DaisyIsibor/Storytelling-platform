@@ -1,0 +1,63 @@
+/* Style for the header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+}
+
+/* Style for the header left section (containing the website name) */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+
+/* Style for the hamburger menu icon */
+#menu-toggle {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 20px; 
+    padding: 7px; 
+    margin-right: 10px; 
+
+}
+
+/* Style for the navigation menu */
+#menu {
+    display: none; 
+    position: absolute;
+    top: calc(100% + 10px); 
+    left: 0;
+    background-color: white; /
+    border: 1px solid #ccc; 
+    padding: 10px;
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.show {
+    display: block;
+}
+
+#menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+#menu li {
+    margin: 0;
+    padding: 0;
+}
+
+#menu a {
+    display: block;
+    padding: 10px; 
+    text-decoration: none;
+    color: black; /
+}
+
+#menu a:hover {
+    background-color: #f0f0f0; 
+}
