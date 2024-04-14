@@ -23,11 +23,15 @@
                     <!-- Conditionally render login or logout links -->
                     {{#if logged_in}}
                     <ul>
-                        <li><a href="/profile">My Profile</a></li>
-                        <li><a href="/bio">My Bio</a></li>
-                        <li><a href="/write">Write</a></li>
-                        <li><a href="/favourites">Favourites</a></li>
-                        <li><a href="logout">Logout</a></li>
+                        <li class="menu-item"><span class ="menu-item-icon">&#9997;</span><a href="/profile">My Profile</a></li>
+
+                        <li class="menu-item"><span class ="menu-item-icon">&#9999;</span><a href="/bio">My Bio</a></li>
+
+                        <li class="menu-item"><span class ="menu-item-icon">&#128396;</span><a href="/write">Write</a></li>
+
+                        <li class="menu-item"><span class ="menu-item-icon">&#128278;</span><a href="/favourites">Favourites</a></li>
+
+                        <li class="menu-item"><span class ="menu-item-icon">&#9998;</span><a href="logout">Logout</a></li>
                     </ul>
                     {{else}}
                     <a href="/login">login</a>
