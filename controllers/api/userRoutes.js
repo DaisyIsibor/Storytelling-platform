@@ -102,7 +102,7 @@ router.post('/logout', withAuth, async (req, res) => {
     }
 });
 
-// Using the DELETE method to delete a comment
+// Using the DELETE method to delete a user
 router.delete('/:id', withAuth, async (req, res) => {
     try {
       const dbUserData = await User.destroy({
