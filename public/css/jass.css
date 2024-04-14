@@ -1,0 +1,12 @@
+#profile-info {
+    /* Adjust the max-height and overflow properties as needed */
+    max-height: calc(100vh - 200px); /* Subtract the height of the footer and any additional space you want */
+    overflow-y: auto; /* Add scroll if content overflows */
+}
+
+/* Optional: Adjust padding or margin for better spacing */
+#write-form,
+#favorite-stories,
+#bio-form {
+    padding-bottom: 20px; /* Add some padding at the bottom to prevent content from sticking to the footer */
+}
