@@ -3,6 +3,52 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth')
 
+router.get('/', async (req, res) => {
+    try {
+      const dbUserData = await User.findAll({
+        attributes: { exclude: ['password'] },
+      });
+      res.status(200).json(dbUserData);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
+
+router.get('/:id', async (req, res) => {
+    try {
+      const dbUserData = await User.findOne({
+        attributes: { exclude: ['password'] },
+        where: { id: req.params.id },
+        include: [
+          {
+            model: Post,
+            attributes: ['id', 'title', 'story_content'],
+          },
+          {
+            model: Comment,
+            attributes: ['id', 'comment_text'],
+            include: {
+              model: Post,
+              attributes: ['title'],
+            },
+          },
+          {
+            model: Post,
+            attributes: ['title'],
+          },
+        ],
+      });
+      console.log(dbUserData);
+      if (!dbUserData) {
+        res.status(404).json({ message: `No such user id ${req.params.id}` });
+        return;
+      }
+      res.status(200).json(dbUserData);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
+
 // Signing up the user (need the id and user name)
 router.post('/', async (req, res) => {
     try {
@@ -53,6 +99,23 @@ router.post('/logout', withAuth, async (req, res) => {
         });
         } else {
             res.status(404).end();
+    }
+});
+
+// Using the DELETE method to delete a comment
+router.delete('/:id', withAuth, async (req, res) => {
+    try {
+      const dbUserData = await User.destroy({
+        where: {id: req.params.id},
+      });        
+      if (!dbUserData) {
+        res.status(404).json({
+        });
+        return;
+      }  
+      res.status(200).json({dbUserData, success: true});
+    } catch (err) {
+      res.status(500).json(err);
     }
 });
 
