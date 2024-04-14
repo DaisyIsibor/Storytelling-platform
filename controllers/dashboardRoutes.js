@@ -27,7 +27,7 @@ router.get('/', withAuth, (req, res) => {
     })
       .then((dbPostData) => {
         const posts = dbPostData.map((post) => post.get({ plain: true }));
-        res.render('profile', { posts, loggedIn: true, name: req.session.name,});       
+        res.render('profile', { posts, logged_in: true, name: req.session.name,});       
       })
       .catch((err) => {
         console.log(err);
@@ -63,7 +63,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
           return;
         }
         const post = dbPostData.get({ plain: true });
-        res.render('edit-story', { post, loggedIn: true, name: req.session.name });         
+        res.render('edit-story', { post, logged_in: true, name: req.session.name });         
       })
       .catch((err) => {
         console.log(err);
@@ -73,7 +73,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
 
 //  Using the GET method to add a new post
 router.get('/new', withAuth, (req, res) => {
-    res.render('new-story', { loggedIn: true });
+    res.render('new-story', { logged_in: true });
 });
 
 module.exports = router; 
