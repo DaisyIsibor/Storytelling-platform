@@ -7,10 +7,10 @@ const withAuth = require('../utils/auth')
 // Route for the Homepage 
 router.get("/", async (req, res) => {
     try{
-        const postData = await Post.findAll({
+        const dbPostData = await Post.findAll({
             include: [{model: User, attributes: ["name"] }],
         });
-        const posts = postData.map((post) => post.get({plain: true}));
+        const posts = dbPostData.map((post) => post.get({plain: true}));
         res.render("homepage", {
             posts,
             logged_in: req.session.logged_in,
@@ -57,7 +57,7 @@ router.get('/', async (req, res) =>{
 // Individual Post 
 router.get('/post/:id', withAuth, async (req, res) => {
     try{
-        const postData = await Post.findOne({
+        const dbPostData = await Post.findOne({
             where: {id: req.params.id},
             attributes:['id', 'content', 'title', 'created_at'],
             include: [
@@ -77,8 +77,8 @@ router.get('/post/:id', withAuth, async (req, res) => {
                 },
             ],
         });
-        if (postData) {
-            const post = postData.get({plain: true});
+        if (dbPostData) {
+            const post = dbPostData.get({plain: true});
             console.log(post);
             res.render('single-comment', {post, logged_in: req.session.logged_in, name: req.session.name,})
         } else {
