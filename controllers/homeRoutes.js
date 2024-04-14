@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
-const sequelize = require('../config/connection');
+// const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth')
 // const { logger } = require('sequelize/lib/utils/logger');
 
@@ -90,23 +90,43 @@ router.get('/post/:id', withAuth, async (req, res) => {
     }
 });
 
+// Use withAuth middleware to prevent access to route
+router.get('/profile', withAuth, async (req, res) => {
+    try {
+      // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+        attributes: { exclude: ['password'] },
+        include: [{ model: Project }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('profile', {
+        ...user,
+        logged_in: true
+    });
+    } catch (err) {
+    res.status(500).json(err);
+    }
+});
+
 
 //Login 
 router.get("/login", (req, res) => {
     if (req.session.logged_in){
-        res.redirect('/');
+        res.redirect('/profile');
         return;
     }
     res.render('login');
 })
 
 //Signup
-router.get('/signup', async (req, res) => {
-    res.render('login');
-})
+// router.get('/signup', async (req, res) => {
+//     res.render('login');
+// })
 
 //testing
-// render the new new post page
+//render the new new post page
 router.get('/newpost', (req, res) => {
     if (req.session.logged_in) {
         res.render('profile');
