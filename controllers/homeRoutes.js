@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
             include: [{model: User, attributes: ["name"] }],
         });
         const posts = postData.map((post) => post.get({plain: true}));
-        res.render("story", {
+        res.render("homepage", {
             posts,
             logged_in: req.session.logged_in,
         });
@@ -46,7 +46,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
         if (postData) {
             const post = postData.get({plain: true});
             console.log(post);
-            res.render('story', {post, logged_in: req.session.logged_in, name: req.session.name,})
+            res.render('single-comment', {post, logged_in: req.session.logged_in, name: req.session.name,})
         } else {
             res.status(404).json({ message: "No Post with ID"});
             return;

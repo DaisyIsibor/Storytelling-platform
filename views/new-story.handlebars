@@ -1,0 +1,27 @@
+{{!-- Placeholders for a specific story and user who wrote it --}}
+<div class="card">
+    <h2 class="card-header">Write Your Story Here:</h2>
+    <form class="card-body" id="newstory-form">
+      <div>
+        <label class="form-label">Title:</label>
+        <input type="text" class="form-input" name="story-title"/>
+      </div>
+      <div>
+        <label class="form-label">Content:</label>
+        <textarea class="form-textarea form-input" name="story-content"></textarea>
+      </div>
+      <div class>
+        <button type="submit" class="btn btn-primary">Create Story</button>
+      </div>
+    </form>
+</div>
+
+<script src="/js/create-story.js"></script>
+
+{{!-- <div class="story">
+    <h2>{{ story.title }}</h2>
+    <p>{{ story.content }}</p>
+    <p>Author: {{ story.author }}</p>
+    <p>Theme: {{ story.theme }}</p>
+    <p>Published on: {{ formatDate story.date }}</p>
+</div> --}}
