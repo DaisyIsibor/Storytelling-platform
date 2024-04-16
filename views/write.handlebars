@@ -1,16 +1,26 @@
-<!-- This is the profile of each user -->
+{{!-- Placeholders for a specific story and user who wrote it --}}
+{{!-- <div class="card">
+    <h2 class="card-header">Write Your Story Here:</h2>
+    <form class="card-body" id="newstory-form">
+      <div>
+        <label class="form-label">Title:</label>
+        <input type="text" class="form-input" name="story-title"/>
+      </div>
+      <div>
+        <label class="form-label">Content:</label>
+        <textarea class="form-textarea form-input" name="story-content"></textarea>
+      </div>
+      <div class>
+        <button type="submit" class="btn btn-primary">Create Story</button>
+      </div>
+    </form>
+</div> --}}
 
-<!-- profile.handlebars -->
-<section id="profile-info">
-    
-    <!-- Include profile information here -->
-    <p><h2>Welcome, {{ name }}</h2></p>
-</section>
 
-{{!-- <section id="write-form">
+<section id="write-form">
     <h2>Write A Story</h2>
     
-    <form action="/write" method="POST">
+   <form action="/write" method="POST" id="write-form">
 
         <label for="title">Title:</label><br>
         <input type="text" id="title" name="title" required><br><br>
@@ -49,61 +59,22 @@
     <option value="cooking">Cooking</option>
     <option value="crafting">Crafting</option>
     <option value="gardening">Gardening</option>
+    <option value="gardening">Life Journeys</option>
     <option value="inter-racial-romance">Interracial Romance</option>
     <option value="billionaire-romance">Billionaire Romance</option>
     <option value="office-romance">Office Romance</option>
 
         </select><br><br>
         <button type="submit">Submit Story</button>
-    </form> --}}
-
-    <!-- Delete and Edit buttons for stories -->
-    {{#if storys.length}}
-    <section id="delete-form">
-        <h2>Delete or Edit Stories</h2>
-
-        <div class="col-md-6 story-list">
-            <h3>Current Story:</h3>
-            {{#each storys as |story|}}
-            <div class="row mb-2">
-                <div class="col-md-8">
-                    <h4><a href="/story/{{ story.id }}">{{ story.title }}</a></h4>
-                    </div>
-                <div class="col-md-4">
-                <button class="btn btn-sm btn-danger" data-id="{{story.id}}">DELETE</button>
-                </div>
-                    <!-- Add edit button here -->
-                    <a href="/edit-story/{{ story.id }}" class="btn btn-sm btn-primary">EDIT</a>
-                </div>
-            </div>
-            {{/each}}
-        </div>
-    </section>
-    {{/if}}
-</section>
-
-<section id="favorite-stories">
-    <h2>Favorite Stories</h2>
-
-    <!-- Display favorite stories here -->
-    {{#each user.favoriteStories}}
-    <div class="story">
-        <h3>{{ this.title }}</h3>
-        <p>{{ this.content }}</p>
-    </div>
-    {{/each}}
-</section>
-
-<section id="bio-form">
-    <h2>About Me</h2>
-    <!-- Include bio form here -->
-    <form action="/save-bio" method="POST">
-
-        <label for="about-me">About Me:</label><br>
-        
-        <textarea id="about-me" name="about-me" rows="4" cols="50" required></textarea><br><br>
-        <button type="submit">Save</button>
     </form>
-</section>
 
-<script src="./js/profilePage.js"></script>
+    
+<script src="/js/write.js"></script>
+
+{{!-- <div class="story">
+    <h2>{{ story.title }}</h2>
+    <p>{{ story.content }}</p>
+    <p>Author: {{ story.author }}</p>
+    <p>Theme: {{ story.theme }}</p>
+    <p>Published on: {{ formatDate story.date }}</p>
+</div> --}}
