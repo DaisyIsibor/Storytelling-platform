@@ -1,5 +1,6 @@
 // Router for all post to get all post.
 const router = require('express').Router();
+const { Story } = require('../../models');
 const { User, Post, Comment  } = require('../../models');
 const withAuth = require('../../utils/auth')
 
@@ -58,6 +59,26 @@ router.get('/', async (req, res) => {
         res.status(200).json(postData);
     } catch (err){
         res.status(500).json(err);
+    }
+});
+
+// Render the page to create a new story
+// router.get('/write', withAuth, (req, res) => {
+//     res.render('write');
+// });
+
+// Create a new story
+router.post('/write', withAuth, async (req, res) => {
+    try {
+        const newStory = await Story.create({
+            title: req.body.title,
+            content: req.body.content,
+            theme: req.body.theme, 
+            user_id: req.session.user_id
+        });
+        res.status(200).json(newStory);
+    } catch (err) {
+        res.status(400).json(err);
     }
 });
 

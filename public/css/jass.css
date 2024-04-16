@@ -1,0 +1,99 @@
+#profile-info {
+    /* Adjust the max-height and overflow properties as needed */
+    max-height: calc(100vh - 200px); /* Subtract the height of the footer and any additional space you want */
+    overflow-y: auto; /* Add scroll if content overflows */
+}
+
+/* Optional: Adjust padding or margin for better spacing */
+#write-form,
+#favorite-stories,
+#bio-form {
+    padding-bottom: 20px; /* Add some padding at the bottom to prevent content from sticking to the footer */
+}
+
+
+
+form {
+    width: 100%;
+  }
+  
+  form .form-group {
+    display: block;
+    width: 100%;
+    margin: 0.625rem 0;
+  }
+  
+  form .form-input,
+  form .form-textarea {
+    display: block;
+  }
+  
+  form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: 50%;
+  }
+  
+  form label,
+  form .form-label {
+    display: inline-block;
+    font-size: 1.2rem;
+    margin: 0.625rem 0 0.25rem 0.3rem;
+  }
+  
+  form .form-input {
+    width: 80%;
+    padding: 0.5rem; 
+    height: 2rem; 
+    color: #1a1a1a;
+    background-color: #ffffff;
+    margin: 0.625rem 0;
+    font-size: 1.2rem;
+    border: 1px solid #484848;
+    border-radius: 0.3rem;
+  }
+  
+  form .form-input.form-input-squared {
+    border-radius: 0;
+  }
+  
+  form [type='checkbox'],
+  form [type='radio'] {
+    display: inline-block;
+  }
+  
+  label form [type='checkbox'],
+  label form [type='radio'] {
+    display: inline-block;
+  }
+  
+  /* Additional styles for buttons */
+  form .btn {
+    background-color: #34495e;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+  }
+  
+  form .btn-primary {
+    background-color: #34495e;
+  }
+  
+  form .btn-secondary {
+    background-color: #6c757d; 
+  }
+  
+  /* Make forms side by side */
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .col-md-6 {
+    width: 48%; 
+  }
