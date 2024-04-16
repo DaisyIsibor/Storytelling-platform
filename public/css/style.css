@@ -5,7 +5,7 @@ header {
     align-items: center;
     padding: 10px;
     position: relative; 
-    background-color: pink;
+    background-color: lightblue;
 }
 
 /* Style for the header left section (containing the website name) */
@@ -22,20 +22,32 @@ body{
     background-color: bisque;
     font-size: medium;
 }
-.content-section{
-    background-color: pink;
-}
+
 /* Styling for Strory Title */
 .story-name{
     font-size: xx-large;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: pink;
 }
+/* Authur Name */
+.created-by{
+    font-size: xx-large;
+}
+.content-section{
+    background-color: rgb(146, 17, 38);
+    font-size: xx-large;
+}
+.content-section.p{
+    font-size: small;
+}
+
 h1{
-    background-color: rgb(224, 127, 0);
+    
+    
 }
 
 .write-form{
-    background-color: aqua;
+    background-color: pink;
 }
 /* Style for the hamburger menu icon */
 #menu-toggle {
@@ -120,6 +132,7 @@ background-color: #34495e;
     background-color: #2c3e50;
     color: #ffffff;
     padding:20px;
+    text-align: center;
 }
 
 
