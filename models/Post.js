@@ -20,6 +20,10 @@ Post.init(
             type: DataTypes.TEXT,
             allowNull: false
         },
+        theme: {
+            type: DataTypes.STRING,
+            allowNull: true 
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references:{
