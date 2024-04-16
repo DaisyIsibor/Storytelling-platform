@@ -20,7 +20,7 @@
 <section id="write-form">
     <h2>Write A Story</h2>
     
-    <form action="/write" method="POST">
+   <form action="/write" method="POST" id="write-form">
 
         <label for="title">Title:</label><br>
         <input type="text" id="title" name="title" required><br><br>
@@ -59,6 +59,7 @@
     <option value="cooking">Cooking</option>
     <option value="crafting">Crafting</option>
     <option value="gardening">Gardening</option>
+    <option value="gardening">Life Journeys</option>
     <option value="inter-racial-romance">Interracial Romance</option>
     <option value="billionaire-romance">Billionaire Romance</option>
     <option value="office-romance">Office Romance</option>
@@ -68,7 +69,7 @@
     </form>
 
     
-<script src="/js/create-story.js"></script>
+<script src="/js/write.js"></script>
 
 {{!-- <div class="story">
     <h2>{{ story.title }}</h2>
