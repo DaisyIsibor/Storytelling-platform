@@ -23,6 +23,12 @@
 // Ensure that your write.js script sends a POST request to the correct endpoint
 const newpostFormHandler = async (event) => {
     event.preventDefault();
+JamesH
+    console.log("Testlin2")
+    const title = document.querySelector('input[name="story-title"]').value;
+    const content = document.querySelector('textarea[name="story-content"]').value;
+    const response = await fetch('/api/post', {
+
     
     // Get values from form elements
     const title = document.querySelector('input[name="title"]').value;
@@ -31,6 +37,7 @@ const newpostFormHandler = async (event) => {
     
     // Send data to the server
     const response = await fetch('/api/postRoute/write', {  // Update the URL here
+ main
         method: 'POST',
         body: JSON.stringify({
             title,

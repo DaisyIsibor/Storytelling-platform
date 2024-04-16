@@ -28,10 +28,6 @@ Readers can then read and vote for which stories they enjoy the most and which t
 
 ## Questions
 
-### James
-* Linkedin:
-* Email: 
-* Github:
 ### Ash
 * Linkedin:
 * Email: 
@@ -40,5 +36,8 @@ Readers can then read and vote for which stories they enjoy the most and which t
 * Linkedin:
 * Email: 
 * Github:
-
+### James
+* Linkedin:
+* Email: james
+* Github:
 

@@ -20,6 +20,40 @@ router.get("/", async (req, res) => {
     }
 });
 
+// get all posts
+router.get('/', async (req, res) =>{
+    try {
+        const postData = await Post.findAll({
+            attributes: ['id', 'comment_text', 'user_id', 'post_id'],
+            include: [
+                {
+                    model: Comment,
+                    attributes:['id', 'comment_text', 'user_id', 'post_id'],
+                    include: {
+                        model: User,
+                        attributes: ['name'],
+                    },
+                },
+                {
+                    model:User,
+                    attributes: ['name'],
+                },
+            ],
+            order: [['title']],
+        })
+        const posts = postData.map((post) => post.get({ plain: true}));
+        console.log(posts)
+        res.render('profile',
+        {posts,
+            logged_in: req.session.logged_in,
+            name: req.session.name
+        })
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 // Individual Post 
 router.get('/post/:id', withAuth, async (req, res) => {
     try{
@@ -29,7 +63,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
             include: [
                 {
                     model: Comment,
-                    attributes: ['id', 'comment', 'user_id', 'created_at'],
+                    attributes: ['id', 'comment', 'user_id', 'created_at'],// should we remove
                     include:{
                         model: User,
                         // attribute could also be "name"
@@ -105,12 +139,21 @@ router.get("/login", (req, res) => {
 //render the new new post page
 router.get('/write', (req, res) => {
     if (req.session.logged_in) {
-        res.render('write');
+        res.render('write', {
+            logged_in: true,
+        });
         return;
     }
     // res.redirect('write')
 })
-
+// res.render('profile', {
+//     ...user,
+//     logged_in: true
+// });
+// } catch (err) {
+// res.status(500).json(err);
+// }
+// });
 
 // router.get('/write', withAuth, (req, res) => {
 //     res.render('write');
