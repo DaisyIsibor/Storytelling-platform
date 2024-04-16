@@ -139,12 +139,21 @@ router.get("/login", (req, res) => {
 //render the new new post page
 router.get('/write', (req, res) => {
     if (req.session.logged_in) {
-        res.render('write');
+        res.render('write', {
+            logged_in: true,
+        });
         return;
     }
     // res.redirect('write')
 })
-
+// res.render('profile', {
+//     ...user,
+//     logged_in: true
+// });
+// } catch (err) {
+// res.status(500).json(err);
+// }
+// });
 
 // router.get('/write', withAuth, (req, res) => {
 //     res.render('write');
