@@ -25,9 +25,17 @@ body{
 .content-section{
     background-color: pink;
 }
+/* Styling for Strory Title */
 .story-name{
     font-size: xx-large;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+h1{
+    background-color: rgb(224, 127, 0);
+}
+
+.write-form{
+    background-color: aqua;
 }
 /* Style for the hamburger menu icon */
 #menu-toggle {
