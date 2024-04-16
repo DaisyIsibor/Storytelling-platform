@@ -4,7 +4,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    position: relative;
+    position: relative; 
+    background-color: pink;
 }
 
 /* Style for the header left section (containing the website name) */
@@ -15,6 +16,18 @@ header {
 
 body{
     background-color: #ecf0f1;
+}
+
+.post{
+    background-color: bisque;
+    font-size: medium;
+}
+.content-section{
+    background-color: pink;
+}
+.story-name{
+    font-size: xx-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 /* Style for the hamburger menu icon */
 #menu-toggle {
