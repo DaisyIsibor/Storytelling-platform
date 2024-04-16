@@ -83,6 +83,14 @@ background-color: #34495e;
     background-color: #34495e; 
 }
 
+#logout {
+    color: white; 
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
 .footer{
     position:fixed;
     bottom:0;
@@ -92,6 +100,7 @@ background-color: #34495e;
     color: #ffffff;
     padding:20px;
 }
+
 
 @media only screen and (max-width:768px) {
     .footer{
