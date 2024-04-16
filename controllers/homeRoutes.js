@@ -76,6 +76,16 @@ router.get('/profile', withAuth, async (req, res) => {
     }
 });
 
+// router.get('/logout', (req, res)  
+//     if (req.session.logged_in) {
+    
+//         res.redirect('/'); // Redirect to home page or any other page after logout
+//     });
+//  else {
+//     res.status(404).end();
+//     }
+
+
 
 //Login 
 router.get("/login", (req, res) => {
@@ -93,12 +103,18 @@ router.get("/login", (req, res) => {
 
 //testing
 //render the new new post page
-router.get('/newpost', (req, res) => {
+router.get('/write', (req, res) => {
     if (req.session.logged_in) {
-        res.render('profile');
+        res.render('write');
         return;
     }
-    res.redirect('/login')
+    // res.redirect('write')
 })
+
+
+// router.get('/write', withAuth, (req, res) => {
+//     res.render('write');
+// });
+
 
 module.exports = router;

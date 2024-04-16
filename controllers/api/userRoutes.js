@@ -145,45 +145,28 @@ router.post('/signup', async (req, res) => {
       res.status(400).json(err);
   }
 });
-// Logging out the user
-// router.post('/logout', withAuth, async (req, res) => {
-//         if (req.session.logged_in) {
-//         req.session.destroy(() => {
-//             res.status(204).end();
-//         });
-//         } else {
-//             res.status(404).end();
-//     }
-// });
+
+
 
 
 // router.post('/logout', withAuth, async (req, res) => {
-//   if (req.session.logged_in) {
-//       req.session.destroy(() => {
-//           res.redirect('/'); // Redirect to the home page after logout
-//       });
-//   } else {
-//       res.status(404).end();
+//   try {
+//       if (req.session.logged_in) {
+//           // Destroy the session
+//           req.session.destroy(() => {
+//               // Redirect to the home page after successful logout
+//               res.redirect('/');
+//           });
+//       } else {
+//           res.status(404).end(); // Respond with 404 if user not logged in
+//       }
+//   } catch (err) {
+//       console.error('Logout error:', err);
+//       res.status(500).json({ message: 'An error occurred during logout' });
 //   }
 // });
 
 
-router.post('/logout', withAuth, async (req, res) => {
-  try {
-      if (req.session.logged_in) {
-          // Destroy the session
-          req.session.destroy(() => {
-              // Redirect to the home page after successful logout
-              res.redirect('/');
-          });
-      } else {
-          res.status(404).end(); // Respond with 404 if user not logged in
-      }
-  } catch (err) {
-      console.error('Logout error:', err);
-      res.status(500).json({ message: 'An error occurred during logout' });
-  }
-});
 
 // Using the DELETE method to delete a user
 router.delete('/:id', withAuth, async (req, res) => {
@@ -201,5 +184,28 @@ router.delete('/:id', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
 });
+
+// router.get('/logout', (req, res) => {
+//   if (req.session.logged_in) {
+//     req.session.destroy(() => {
+//       res.redirect('/'); // Redirect to home page or any other page after logout
+//     });
+//   } else {
+//     res.status(404).end();
+//   }
+// });
+
+
+// Logging out the user
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
 
 module.exports = router;
