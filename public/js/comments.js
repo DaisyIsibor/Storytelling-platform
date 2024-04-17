@@ -21,4 +21,7 @@ async function commentFormHandler(event) {
         }
     }
 }
-document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
+const commentForm = document.querySelector('.comment-form');
+if (commentForm) { // Ensure the form exists
+    commentForm.addEventListener('submit', commentFormHandler);
+}

@@ -1,32 +1,13 @@
-{{!-- Placeholders for a specific story and user who wrote it --}}
-{{!-- <div class="card">
-    <h2 class="card-header">Write Your Story Here:</h2>
-    <form class="card-body" id="newstory-form">
-      <div>
-        <label class="form-label">Title:</label>
-        <input type="text" class="form-input" name="story-title"/>
-      </div>
-      <div>
-        <label class="form-label">Content:</label>
-        <textarea class="form-textarea form-input" name="story-content"></textarea>
-      </div>
-      <div class>
-        <button type="submit" class="btn btn-primary">Create Story</button>
-      </div>
-    </form>
-</div> --}}
-
-
 <section id="write-form">
     <h2>Write A Story</h2>
     
-   <form action="/write" method="POST" id="write-form">
+    <form action="/api/posts" method="POST">
 
         <label for="title">Title:</label><br>
         <input type="text" id="title" name="title" required><br><br>
 
-        <label for="content">Content:</label><br>
-        <textarea id="content" name="content" rows="10" cols="50" required></textarea><br><br>
+        <label for="story_content">Content:</label><br>
+        <textarea id="content" name="story_content" rows="10" cols="50" required></textarea><br><br>
 
     <h1>Explore A Tale</h1>
 
@@ -59,7 +40,6 @@
     <option value="cooking">Cooking</option>
     <option value="crafting">Crafting</option>
     <option value="gardening">Gardening</option>
-    <option value="gardening">Life Journeys</option>
     <option value="inter-racial-romance">Interracial Romance</option>
     <option value="billionaire-romance">Billionaire Romance</option>
     <option value="office-romance">Office Romance</option>
@@ -69,7 +49,10 @@
     </form>
 
     
-<script src="/js/write.js"></script>
+<script src="/js/create-story.js"></script>
+
+
+
 
 {{!-- <div class="story">
     <h2>{{ story.title }}</h2>
